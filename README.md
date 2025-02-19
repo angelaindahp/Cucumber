@@ -1,0 +1,1 @@
+M21_CUCUMBER ├── test │ ├── java/com/windi │ │ ├── page │ │ │ ├── HomePage.java │ │ │ └── LoginPage.java │ │ ├── stepdef # framework │ │ │ ├── CucumberHooks.java │ │ │ ├── HomeStepDef.java │ │ │ └── LoginStepDef.java │ │ ├── BaseTest.java │ │ └── CucumberTest.java │ └── resources │ └── login.feature # format Gherkin └── README.md
