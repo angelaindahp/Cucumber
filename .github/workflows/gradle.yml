@@ -32,7 +32,7 @@ jobs:
           #chrome-options: '--headless' #(Jika ingin menjalankan Chrome dalam mode headless)
 
       - name: Build with Gradle
-        run:
+        run: 
           chmod +x gradlew # Make gradlew executable
           ./gradlew build  # Run the build task before tests
 
