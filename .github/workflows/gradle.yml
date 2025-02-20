@@ -1,7 +1,6 @@
 ---
 name: Run Selenium Cucumber Test
 
-# Triger / Kapan Action-nya jalan
 on:
   push:
     branches: ["main"]
@@ -9,47 +8,43 @@ on:
     branches: ["main"]
 
 permissions:
-  contents: read
+  contents: write  # Pastikan bisa push hasil build jika perlu
   pages: write
   id-token: write
 
 jobs:
   build:
-    runs-on: ubuntu-latest # windows-latest, macos-latest, ubuntu-18.04.
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4 # Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT }} # Gunakan PAT jika butuh akses tambahan
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4.0.0
         with:
-          java-version: '21' # Ganti dengan versi Java lain seperti '8', '17'
-          distribution: 'temurin' # Alternatif: 'adoptopenjdk', 'zulu'
-          cache: gradle # Cache agar build lebih cepat
+          java-version: '21'
+          distribution: 'temurin'
+          cache: gradle
 
       - name: Setup Chrome with extra capabilities
         uses: browser-actions/setup-chrome@v1.4.0
         with:
-          chrome-version: latest # Ganti dengan 'stable' untuk versi stabil
-          #chrome-options: '--headless' #(Jika ingin menjalankan Chrome dalam mode headless)
+          chrome-version: latest
 
       - name: Build with Gradle
         run: |
-          chmod +x gradlew  # Make gradlew executable
-          ./gradlew build   # Run the build task before tests
+          chmod +x gradlew
+          ./gradlew build
 
       - name: Run Tests
-        run: ./gradlew clean test # Run tests after the build step
+        run: ./gradlew clean test
 
       - name: Archive test results
         uses: actions/upload-artifact@v4.3.0
-        if: always() # succes(), failure(), canceled()
+        if: always()
         with:
           name: cucumber-reports
-    path: build/reports/cucumber/cucumber.html # Path ke laporan Cucumber
-    
- - name: Checkout Repository
-  uses: actions/checkout@v4
-  with:
-    token: ${{ secrets.PAT }}
-
+          path: build/reports/cucumber/cucumber.html
