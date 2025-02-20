@@ -47,3 +47,13 @@ jobs:
         with:
           name: cucumber-reports
           path: build/reports/cucumber/cucumber.html # Path ke laporan Cucumber
+
+        - name: Deploy Test Report to GitHub Pages
+  if: always()
+  uses: peaceiris/actions-gh-pages@v4.0.0
+  with:
+    personal_token: ${{ secrets.PAT }}
+    publish_branch: gh-pages
+    publish_dir: build/reports
+    commit_message: "Deploy test report - ${{ github.sha }}"
+
