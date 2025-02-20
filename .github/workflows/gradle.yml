@@ -1,11 +1,12 @@
+---
 name: Run Selenium Cucumber Test
 
-#Triger / Kapan Action-nya jalan
+# Triger / Kapan Action-nya jalan
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -24,6 +25,7 @@ jobs:
         with:
           java-version: '21' # Ganti dengan versi Java lain seperti '8', '17'
           distribution: 'temurin' # Alternatif: 'adoptopenjdk', 'zulu'
+          cache: gradle # Cache agar build lebih cepat
 
       - name: Setup Chrome with extra capabilities
         uses: browser-actions/setup-chrome@v1.4.0
@@ -32,9 +34,9 @@ jobs:
           #chrome-options: '--headless' #(Jika ingin menjalankan Chrome dalam mode headless)
 
       - name: Build with Gradle
-        run: 
-          chmod +x gradlew # Make gradlew executable
-          ./gradlew build  # Run the build task before tests
+        run: |
+          chmod +x gradlew  # Make gradlew executable
+          ./gradlew build   # Run the build task before tests
 
       - name: Run Tests
         run: ./gradlew clean test # Run tests after the build step
@@ -43,5 +45,5 @@ jobs:
         uses: actions/upload-artifact@v4.3.0
         if: always() # succes(), failure(), canceled()
         with:
-          name: cucumber reports
-          path: target/cucumber-reports.html # Path to test reports
+          name: cucumber-reports
+          path: build/reports/cucumber/cucumber.html # Path ke laporan Cucumber
