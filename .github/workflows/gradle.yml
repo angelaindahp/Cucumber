@@ -1,6 +1,6 @@
----
-name: Run Selenium Cucumber Test
+name: Run Cucumber Test CI
 
+# Triger / Kapan Action-nya jalan
 on:
   push:
     branches: ["main"]
@@ -8,43 +8,49 @@ on:
     branches: ["main"]
 
 permissions:
-  contents: write  # Pastikan bisa push hasil build jika perlu
+  contents: read
   pages: write
   id-token: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  automation-Cucumber:
+    runs-on: ubuntu-latest # windows-latest, macos-latest, ubuntu-18.04
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PAT }} # Gunakan PAT jika butuh akses tambahan
+        uses: actions/checkout@v4  # Checkout the repository
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4.0.0
         with:
-          java-version: '21'
-          distribution: 'temurin'
-          cache: gradle
+          java-version: '21'  # Ganti dengan versi Java lain seperti '8', '17'
+          distribution: 'temurin'  # Alternatif: 'adoptopenjdk', 'zulu'
 
       - name: Setup Chrome with extra capabilities
         uses: browser-actions/setup-chrome@v1.4.0
         with:
-          chrome-version: latest
+          chrome-version: latest # Ganti dengan 'stable' untuk versi stabil
 
-      - name: Build with Gradle
-        run: |
-          chmod +x gradlew
-          ./gradlew build
+      - name: Grant Execute Permission for Gradle
+        run: chmod +x gradlew
+
+      - name: Build Project
+        run: ./gradlew build
 
       - name: Run Tests
         run: ./gradlew clean test
 
-      - name: Archive test results
+      - name: Archive Test Results
         uses: actions/upload-artifact@v4.3.0
-        if: always()
+        if: always() # success(), failure(), canceled()
         with:
           name: cucumber-reports
-          path: build/reports/cucumber/cucumber.html
+          path: build/reports/cucumber # Path ke laporan Cucumber
+
+      # (Opsional) Deploy ke GitHub Pages
+      - name: Deploy to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4.0.0
+        with:
+          personal_token: ${{ secrets.PAT }}
+          publish_dir: build/reports/cucumber
