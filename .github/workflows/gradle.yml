@@ -44,12 +44,14 @@ jobs:
         run: ls -R build/reports/
 
       # 7️⃣ Simpan laporan Cucumber sebagai artefak
-      - name: Archive Cucumber Report
-        uses: actions/upload-artifact@v3
+      # Upload Artifact dengan versi terbaru
+      - name: Archive Test Result
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: Cucumber Report
-          path: build/reports/tests/test/
+          path: build/reports
+
 
       # 8️⃣ (Opsional) Deploy ke GitHub Pages
       - name: Deploy to GitHub Pages
@@ -57,4 +59,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           personal_token: ${{ secrets.PAT }}
-          publish_dir: build/reports/tests/test/
+          publish_dir: build/reports
