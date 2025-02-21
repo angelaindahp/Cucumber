@@ -54,4 +54,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4.0.0
         with:
           personal_token: ${{ secrets.PAT }}
-          publish_dir: build/reports/cucumber
+          publish_dir: Cucumber Report
