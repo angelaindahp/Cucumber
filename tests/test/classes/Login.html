@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.850s</div>
+<div class="counter">2.859s</div>
 <p>duration</p>
 </div>
 </td>
@@ -80,7 +80,7 @@
 <h3 class="failures">Login using invalid email and password</h3>
 <span class="code">
 <pre>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Process unexpectedly closed with status 1 
-Host info: host: 'fv-az1964-465', ip: '10.1.0.9'
+Host info: host: 'fv-az2032-913', ip: '10.1.0.154'
 Build info: version: '4.5.0', revision: 'fe167b119a'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-1021-azure', java.version: '17.0.14'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
@@ -111,7 +111,7 @@ Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: tru
 <h3 class="failures">Login with valid username and password</h3>
 <span class="code">
 <pre>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Process unexpectedly closed with status 1 
-Host info: host: 'fv-az1964-465', ip: '10.1.0.9'
+Host info: host: 'fv-az2032-913', ip: '10.1.0.154'
 Build info: version: '4.5.0', revision: 'fe167b119a'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-1021-azure', java.version: '17.0.14'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
@@ -150,12 +150,12 @@ Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: tru
 </thead>
 <tr>
 <td class="failures">Login using invalid email and password</td>
-<td class="failures">0.292s</td>
+<td class="failures">0.302s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
 <td class="failures">Login with valid username and password</td>
-<td class="failures">1.558s</td>
+<td class="failures">2.557s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -167,7 +167,7 @@ Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: tru
 @login @valid-login
 Scenario: Login with valid username and password ?[90m# src/test/resources/login.feature:5?[0m
       ?[31morg.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Process unexpectedly closed with status 1 
-Host info: host: 'fv-az1964-465', ip: '10.1.0.9'
+Host info: host: 'fv-az2032-913', ip: '10.1.0.154'
 Build info: version: '4.5.0', revision: 'fe167b119a'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-1021-azure', java.version: '17.0.14'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
@@ -198,7 +198,7 @@ Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: tru
 @login @invalid-login
 Scenario: Login using invalid email and password                                                          ?[90m# src/test/resources/login.feature:13?[0m
       ?[31morg.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Process unexpectedly closed with status 1 
-Host info: host: 'fv-az1964-465', ip: '10.1.0.9'
+Host info: host: 'fv-az2032-913', ip: '10.1.0.154'
 Build info: version: '4.5.0', revision: 'fe167b119a'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-1021-azure', java.version: '17.0.14'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
@@ -234,11 +234,11 @@ Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: tru
 <pre>SLF4J(W): No SLF4J providers were found.
 SLF4J(W): Defaulting to no-operation (NOP) logger implementation
 SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
-1740190783958	geckodriver	INFO	Listening on 127.0.0.1:34590
-1740190784143	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER=&quot;1&quot; MOZ_CRASHREPORTER_NO_REPORT=&quot;1&quot; MOZ_CRASHREPORTER_SHUTDOWN=&quot;1&quot; MOZ_NO_REMOTE=&quot;1&quot; &quot;/usr ... s&quot; &quot;http://127.0.0.1:48931/,http://localhost:48931/,http://[::1]:48931/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;/tmp/rust_mozprofileNJeFTc&quot;
+1740191025325	geckodriver	INFO	Listening on 127.0.0.1:54363
+1740191025516	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER=&quot;1&quot; MOZ_CRASHREPORTER_NO_REPORT=&quot;1&quot; MOZ_CRASHREPORTER_SHUTDOWN=&quot;1&quot; MOZ_NO_REMOTE=&quot;1&quot; &quot;/usr ... s&quot; &quot;http://127.0.0.1:47866/,http://localhost:47866/,http://[::1]:47866/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;/tmp/rust_mozprofileS75a2L&quot;
 Error: no DISPLAY environment variable specified
-1740190784451	geckodriver	INFO	Listening on 127.0.0.1:52504
-1740190784470	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER=&quot;1&quot; MOZ_CRASHREPORTER_NO_REPORT=&quot;1&quot; MOZ_CRASHREPORTER_SHUTDOWN=&quot;1&quot; MOZ_NO_REMOTE=&quot;1&quot; &quot;/usr ... s&quot; &quot;http://127.0.0.1:36406/,http://localhost:36406/,http://[::1]:36406/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;/tmp/rust_mozprofileHtPqaK&quot;
+1740191025927	geckodriver	INFO	Listening on 127.0.0.1:35471
+1740191025960	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER=&quot;1&quot; MOZ_CRASHREPORTER_NO_REPORT=&quot;1&quot; MOZ_CRASHREPORTER_SHUTDOWN=&quot;1&quot; MOZ_NO_REMOTE=&quot;1&quot; &quot;/usr ... s&quot; &quot;http://127.0.0.1:54615/,http://localhost:54615/,http://[::1]:54615/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;/tmp/rust_mozprofileXhQI4t&quot;
 Error: no DISPLAY environment variable specified
 </pre>
 </span>
@@ -251,7 +251,7 @@ Error: no DISPLAY environment variable specified
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.10</a> at Feb 22, 2025, 2:19:45 AM</p>
+<a href="http://www.gradle.org">Gradle 8.10</a> at Feb 22, 2025, 2:23:46 AM</p>
 </div>
 </div>
 </body>
