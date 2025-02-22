@@ -40,7 +40,8 @@ jobs:
 
     # Execute gradlew for running cucumber test
     - name: Execute Web UI Tests
-      run: ./gradlew webTest
+      run: ./gradlew cucumber
+
 
     # Archive Test Result
     - name: Archive Test Result
