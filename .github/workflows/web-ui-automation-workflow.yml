@@ -40,7 +40,13 @@ jobs:
         if: always()
         with:
           name: Cucumber Report
-          path : reports
+          path : build/reports/tests/test/
+
+          - name: Upload Test Report
+  uses: actions/upload-artifact@v4
+  with:
+    name: test-report
+    path: build/reports/tests/test/
 
 
       # 8️⃣ (Opsional) Deploy ke GitHub Pages
@@ -49,4 +55,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           personal_token: ${{ secrets.PAT }}
-          publish_dir: build/reports
+          publish_dir: build/reports/tests/test/
