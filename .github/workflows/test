@@ -44,13 +44,13 @@ jobs:
         if: always() #always() # success() , failure(), canceled()
         with:
           name: cucumber reports
-          path: build/reports/tests/test//index.html  # Path to test reports
+          path: build/reports/tests/test//  # Path to test reports
 
 - name: Upload Test Report
   uses: actions/upload-artifact@v4
   with:
     name: test-report
-    path: build/reports/tests/test/index.html
+    path: build/reports/tests/test/
 
 
        # Deploy to GitHub Pages
@@ -59,4 +59,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4.0.0
         with:
           personal_token: ${{ secrets.PAT }}
-          publish_dir: build/reports/tests/test/index.html
+          publish_dir: build/reports/tests/test/
