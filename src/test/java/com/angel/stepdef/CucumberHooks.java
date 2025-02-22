@@ -3,18 +3,22 @@ package com.angel.stepdef;
 import com.angel.BaseTest;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-import static java.sql.DriverManager.getDriver;
 
 public class CucumberHooks extends BaseTest {
 
     @Before
-    public void beforeTest()    {
-        getDriver();
+    public void setup() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
     }
 
     @After
-    public void afterTest() {
-        driver.close();
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
-}
+
