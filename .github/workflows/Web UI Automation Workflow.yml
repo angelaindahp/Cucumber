@@ -33,7 +33,7 @@ jobs:
       - name: Make Gradle Executable
         run: chmod +x gradlew
 
-      - name: Execute Web UI Tests
+      - name: Execute API & Web UI Tests
         run: ./gradlew cucumber
 
       - name: Archive Test Result
